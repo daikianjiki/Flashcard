@@ -29,4 +29,9 @@ public class Flashcard {
         JAVA,SPRING,WEB,ANGULAR
     }
 
+    /**
+     * TODO: Add an author variable for field to the flashcard that is type user.
+     *
+     */
+
 }

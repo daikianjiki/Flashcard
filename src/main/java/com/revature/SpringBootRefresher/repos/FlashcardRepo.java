@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FlashcardRepo extends JpaRepository<Flashcard, Integer> {
+
+    // Todo: add a find by Category method
+    public Flashcard findByCategory(Flashcard.Category category);
 }

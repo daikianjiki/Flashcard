@@ -3,22 +3,19 @@ package com.revature.SpringBootRefresher.services;
 
 import com.revature.SpringBootRefresher.models.Flashcard;
 import com.revature.SpringBootRefresher.repos.FlashcardRepo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class FlashcardService {
-    FlashcardRepo flashcardRepo;
+    private final FlashcardRepo flashcardRepo;
 
-    public FlashcardService(FlashcardRepo flashcardRepo) {
-        this.flashcardRepo = flashcardRepo;
-    }
-
-
-    public Optional<Flashcard> getFlashcard(int id) {
-        return flashcardRepo.findById(id);
+    public Flashcard getFlashcard(int id) {
+        return flashcardRepo.findById(id).get();
     }
 
     public List<Flashcard> getAllFlashcards() {
@@ -47,5 +44,9 @@ public class FlashcardService {
         patchedFlashcard.setAnswer(flashcard.getAnswer());
         patchedFlashcard.setCategory(flashcard.getCategory());
         return flashcardRepo.save(patchedFlashcard);
+    }
+
+    public Flashcard findByCategory(Flashcard.Category category) {
+        return flashcardRepo.findByCategory(category);
     }
 }
