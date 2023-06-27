@@ -33,16 +33,19 @@ public class FlashcardService {
         flashcardRepo.deleteById(id);
     }
 
-    public Flashcard updateFlashcard(int id) {
-        Flashcard flashcard = flashcardRepo.findById(id).get();
-        flashcard.setQuestion(flashcard.getQuestion());
-        flashcard.setAnswer(flashcard.getAnswer());
-        flashcard.setCategory(flashcard.getCategory());
-        return flashcardRepo.save(flashcard);
+    public Flashcard updateFlashcard(Flashcard flashcard, int id) {
+        Flashcard updatedFlashcard = flashcardRepo.findById(id).get();
+        updatedFlashcard.setQuestion(flashcard.getQuestion());
+        updatedFlashcard.setAnswer(flashcard.getAnswer());
+        updatedFlashcard.setCategory(flashcard.getCategory());
+        return flashcardRepo.save(updatedFlashcard);
     }
 
-    public Flashcard patchFlashcard(int id) {
-        Flashcard flashcard = flashcardRepo.findById(id).get();
-        return flashcardRepo.save(flashcard);
+    public Flashcard patchFlashcard(Flashcard flashcard, int id) {
+        Flashcard patchedFlashcard = flashcardRepo.findById(id).get();
+        patchedFlashcard.setQuestion(flashcard.getQuestion());
+        patchedFlashcard.setAnswer(flashcard.getAnswer());
+        patchedFlashcard.setCategory(flashcard.getCategory());
+        return flashcardRepo.save(patchedFlashcard);
     }
 }

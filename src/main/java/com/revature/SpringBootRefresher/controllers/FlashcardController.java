@@ -40,13 +40,13 @@ public class FlashcardController {
     }
 
     @PutMapping("flashcard/{id}")
-    public Flashcard updateFlashcard(@PathVariable int id) {
-        return flashcardService.updateFlashcard(id);
+    public Flashcard updateFlashcard(@RequestBody Flashcard flashcard, @PathVariable int id) {
+        return flashcardService.updateFlashcard(flashcard, id);
     }
 
     @PatchMapping("flashcard/{id}")
-    public Flashcard patchFlashcard(@PathVariable int id) {
-        return flashcardService.patchFlashcard(id);
+    public Flashcard patchFlashcard(@RequestBody Flashcard flashcard, @PathVariable int id) {
+        return flashcardService.patchFlashcard(flashcard, id);
     }
 
 }
