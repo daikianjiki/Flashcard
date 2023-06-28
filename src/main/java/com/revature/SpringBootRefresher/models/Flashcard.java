@@ -33,5 +33,6 @@ public class Flashcard {
      * TODO: Add an author variable for field to the flashcard that is type user.
      *
      */
-
+//    @ManyToOne
+//    public User author;
 }

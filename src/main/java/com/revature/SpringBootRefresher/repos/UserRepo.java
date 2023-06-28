@@ -1,8 +1,10 @@
 package com.revature.SpringBootRefresher.repos;
 
-public interface UserRepo {
-    /**
-     * TODO: Set up the repo for our User object
-     * Add any unique methods as necessary.
-     */
+import com.revature.SpringBootRefresher.models.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepo extends JpaRepository<User, Integer> {
+    User findByUsername(String username);
 }
