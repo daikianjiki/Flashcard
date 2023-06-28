@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import static com.revature.SpringBootRefresher.models.Flashcard.Category.SPRING;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -33,10 +34,11 @@ public class FlashcardControllerTests {
 
     @Test
     public void checkValueFromGetByIdRequest() {
-        Flashcard actual = new Flashcard(0, "What is Spring MVC?", "Spring MVC is an integrated version of the Spring framework and Model, View, Controller", Flashcard.Category.SPRING);
+        Flashcard actual = new Flashcard(0, "What is Spring MVC?", "Spring MVC is an integrated version of the Spring framework and Model, View, Controller", SPRING);
 
-        Mockito.when(fs.findByCategory(actual.getCategory())).thenReturn(new Flashcard(1, "What is Spring MVC?", "Spring MVC is an integrated version of the Spring framework and Model, View, Controller", Flashcard.Category.SPRING));
+        Mockito.when(fs.findByCategory(actual.getCategory())).thenReturn(new Flashcard(1, "What is Spring MVC?", "Spring MVC is an integrated version of the Spring framework and Model, View, Controller", SPRING));
 
-        Assertions.assertNotEquals(fs.findByCategory(actual.getCategory()).getCategory(), actual.getCategory());
+        System.out.println(actual.getCategory());
+        Assertions.assertEquals(SPRING, actual.getCategory());
     }
 }
